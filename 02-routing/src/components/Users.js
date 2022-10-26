@@ -1,12 +1,15 @@
 import {useEffect, useState} from "react"
-import { Link } from "react-router-dom";
+import { Link, Routes, Route, Outlet , } from "react-router-dom";
 import axios from "axios"
+import User from "./User"
 
 function Users() {
 
   const [users, setUsers] = useState([]);
 
   const [loading, setLoading] = useState(true)
+
+  
 
   useEffect(()=> {
     axios("https://jsonplaceholder.typicode.com/users")
@@ -27,6 +30,16 @@ function Users() {
         ) )
       }
       </ul>
+
+      <Routes>
+        <Route path={`/:id`} component={User}/>
+          
+        
+        <Route path={""}>
+          <h3>Please select a user.</h3>
+          <Outlet/>
+        </Route>
+      </Routes>
     </div>
   );
 }
