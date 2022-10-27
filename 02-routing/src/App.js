@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import Users from "./components/Users";
 import About from "./components/About";
+import User from "./components/User";
 
 
 
@@ -31,8 +32,9 @@ function App() {
             renders the first one that matches the current URL. */}
           <Routes>
             <Route path="/"  element={<Home />} />
-            <Route path="/about"  element={<About />} />
-            <Route path="/users" element={<Users />} />
+            <Route path="/about/"  element={<About />} />
+            <Route path="/users/" element={<Users />} />
+           
             
             
           </Routes>
