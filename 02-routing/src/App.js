@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-do
 import Home from "./components/Home";
 import Users from "./components/Users";
 import About from "./components/About";
+import Error404 from "./components/Error404";
 
 
 
@@ -58,6 +59,7 @@ function App() {
                 <Route path="/"  element={<Home />} />
                 <Route path="/about/"  element={<About />} />
                 <Route path="/users/*" element={<Users />} />
+                <Route path="*" element={<Error404 />} />
             
           </Routes>
         </div>
