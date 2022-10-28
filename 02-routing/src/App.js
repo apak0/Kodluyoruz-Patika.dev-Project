@@ -1,7 +1,7 @@
 import "./App.css";
 
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
 import Home from "./components/Home";
 import Users from "./components/Users";
 import About from "./components/About";
@@ -10,6 +10,11 @@ import About from "./components/About";
 
 
 function App() {
+
+  const activeStyle = {
+    backgroundColor: "red",
+  };
+  
   return (
     <div className="App">
       <Router>
@@ -17,13 +22,31 @@ function App() {
           <nav>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <NavLink to="/" 
+                  // style={({ isActive }) =>
+                  // isActive ? activeStyle : undefined}
+                  // end
+                  activeclassname="active"
+                  end
+                  >
+                  Home
+                </NavLink>
               </li>
               <li>
-                <Link to="/about">About</Link>
+                <NavLink to="/about"
+                // style={({ isActive }) =>
+                // isActive ? activeStyle : undefined}
+                activeclassname="active"
+                >About</NavLink>
               </li>
               <li>
-                <Link to="/users">Users</Link>
+              <NavLink to="/users"
+                // style={({ isActive }) =>
+                // isActive ? activeStyle : undefined}
+                activeclassname="active"
+                >Users</NavLink>
+
+              
               </li>
             </ul>
           </nav>
