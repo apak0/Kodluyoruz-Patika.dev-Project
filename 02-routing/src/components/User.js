@@ -1,4 +1,4 @@
-import { useParams, Link, Outlet } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -16,8 +16,6 @@ function User() {
 
   return (
     
-
-    
     <div>
       <h1>User Details</h1>
       {loading && <div>Loading... </div>}
@@ -25,13 +23,12 @@ function User() {
 
         <br/>
         <br/>
-      <Link to={`/user/${parseInt(id) + 1}`} >Next User({parseInt(id) +1})</Link>
+      <Link to={`/users/${parseInt(id) + 1}`} >
+        Next User({parseInt(id) +1})
+      </Link>
     </div>
 
-   
-  
-    
-  );
+ );
 }
 
 export default User;
