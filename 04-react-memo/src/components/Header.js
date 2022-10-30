@@ -1,9 +1,15 @@
 import React from 'react'
 
-function Header({number}) {
+function Header({number,data}) {
     console.log("Header component re-rendered");
   return (
-    <div>Header - {number}</div>
+    <div>Header - {number}
+
+    <br/>
+    <br/>
+    
+    <code> {JSON.stringify(data)} </code>
+    </div>
   )
 }
 
