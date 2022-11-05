@@ -10,16 +10,18 @@ function Container() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setCity(e.target.value)
-    console.log(city);
+    setLocation(e.target.value)
+    console.log(location)
   }
 
   return (
     <div style={{backgroundColor:"crimson", border:"2px solid blue"}} >
       
-      <form  onSubmit={handleSubmit}>
-              <input value={city} onChange={event => setLocation(event.target.value)} type="text" placeholder='Şehir Giriniz'  ></input>
-      </form>
+            <form onSubmit={handleSubmit} >
+                            <input value={location} onChange={event => setLocation(event.target.value)} type="text" placeholder='Şehir Giriniz'  ></input>
+
+            </form>
+     
       
         <Button/>
         <Content/>
