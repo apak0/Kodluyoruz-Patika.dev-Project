@@ -1,28 +1,41 @@
-import './App.css';
-import Container from './components/Container';
-import {useState} from "react"
+import "./App.css";
+import { useEffect, useState } from "react";
 
-import WeatherContext from './context/Weather';
+import LocationContext from "./context/LocationContext";
+import SearchCity from "./components/SearchCity";
+import City from "./components/City";
+import Content from "./components/Content";
 
 function App() {
-  
-  const apiUrl = "https://api.openweathermap.org/data/2.5/"
-  const apiKey = "795f39038604487d46886d1107c6071b"
-  const [weatherData, setWeatgerData] = useState({})
-  
 
-  const getWeather = `${apiUrl}weather?q=city&appid=${apiKey}&units=metric&lang=tr`
-  
-  console.log(getWeather);
+  const [location, setLocation] = useState("")
+
+  const apiUrl = "https://api.weatherapi.com/v1/current.json?key=";
+  const apiKey = "1b32db57dbee440a8a3164812220611";
+  const getWeather = `${apiUrl}${apiKey}&q=${location}&aqi=no`;
+
+  const [dailyWeatherData, setDailyWeatherData] = useState("")
+
+  const data = {
+    location,
+    setLocation,
+
+  }
+
+  fetch(getWeather)
+    .then((response) => response.json())
+    
+    .catch((err) => console.log(err));
 
   return (
-    <div className="App">
-      <WeatherContext.Provider value="" >
-        <Container/>
-      </WeatherContext.Provider>
-
-
-    </div>
+    <LocationContext.Provider className="App" value={data}>
+      <div>
+        {}
+      </div>
+      <SearchCity/>
+      <Content/>
+     
+    </LocationContext.Provider>
   );
 }
 
