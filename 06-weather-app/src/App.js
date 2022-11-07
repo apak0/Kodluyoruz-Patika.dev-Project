@@ -1,5 +1,6 @@
 import "./App.css";
 import { useEffect, useState } from "react";
+import axios from "axios"
 
 import LocationContext from "./context/LocationContext";
 import SearchCity from "./components/SearchCity";
@@ -16,16 +17,21 @@ function App() {
 
   const [dailyWeatherData, setDailyWeatherData] = useState("")
 
+  
+ 
+
   const data = {
     location,
     setLocation,
 
   }
-
-  fetch(getWeather)
-    .then((response) => response.json())
+  const submitRequest = async locationTo => {
+    await axios(`${apiUrl}${apiKey}&q=bursa&aqi=no`).then(response => console.log(response))
+  };
+  // fetch(getWeather)
+  //   .then((response) => response.json())
     
-    .catch((err) => console.log(err));
+  //   .catch((err) => console.log(err));
 
   return (
     <LocationContext.Provider className="App" value={data}>
