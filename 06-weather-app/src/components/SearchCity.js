@@ -1,24 +1,29 @@
-import {useContext} from 'react'
-import LocationContext from '../context/LocationContext'
+import {useContext, useState} from 'react'
+import {LocaitonContext} from "../context/LocationContext"
 
 function SearchCity() {
-    const {location, setLocation} = useContext(LocationContext)
-    
 
-    const handleSubmit = (e) => {
+ 
+
+  const {location, setLocation} = useContext(LocaitonContext)
+
+  
+
+  
+  const  onSubmit = async (e) =>{
+   await setLocation(location)
     e.preventDefault();
-    setLocation(e.target.value)
-    
     setLocation("")
+    
   }
 
-return (
-     <div style={{backgroundColor:"crimson", border:"2px solid blue"}} >
-      
-        <form onSubmit={handleSubmit} >
-            <input value={location} onChange={event => setLocation(event.target.value)} type="text" placeholder='Şehir Giriniz'  ></input>
-        </form>
-     </div>
+  return (
+
+    <form onSubmit={onSubmit} >
+      <input onChange={(e) => {setLocation(e.target.value)}} type="text" placeholder='Add City' value={location} />
+      <br/>
+      <button  >Search</button>
+    </form>
   )
 }
 

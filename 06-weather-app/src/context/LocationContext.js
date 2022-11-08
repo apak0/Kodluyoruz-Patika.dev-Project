@@ -1,6 +1,17 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
-const LocationContext = createContext();
+export const LocaitonContext = createContext();
 
+export const LocationProvider = (props) => {
+  const [location, setLocation] = useState("");
 
-export default LocationContext;
+  const data = {
+    location,
+    setLocation,
+  };
+  return (
+    <LocaitonContext.Provider value={data}>
+      {props.children}
+    </LocaitonContext.Provider>
+  );
+};
