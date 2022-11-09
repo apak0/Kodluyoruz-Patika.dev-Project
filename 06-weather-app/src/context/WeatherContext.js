@@ -8,26 +8,24 @@ export const WeatherProvider = ({children}) => {
   const { location } = useContext(LocaitonContext);
   const [weatherData, setWeatherData] = useState({});
 
-  const url = "http://api.weatherapi.com/v1/current.json?key=";
-  const apiKey = "1b32db57dbee440a8a3164812220611";
+  const url = "http://api.weatherapi.com/v1/future.json?key=";
+  const apiKey = "999fe6229ff940f1ab0191452220911";
 
-    // useEffect(() => {
-    //     async function getStoreData () {
-    //         const response = await axios(`${url}${apiKey}&q=${location}&aqi=no`)
-            
-    //         setWeatherData(response)
-    //         console.log(response);
-    //     }
-    //     getStoreData();
+    useEffect(() => {
+        async function getStoreData () {
+            const response = await axios(`${url}${apiKey}&q=${location}&aqi=no`)
+            setWeatherData(response)
+            console.log(response);
+        }
+        getStoreData();
         
-    // },[location])
+    },[location])
 
-  // const data = {
-  //   weatherData,
-  // };
-
+    const data = {
+      weatherData
+    }
   return (
-    <WeatherContext.Provider value={weatherData}>
+    <WeatherContext.Provider value={data}>
       {children}
     </WeatherContext.Provider>
   );

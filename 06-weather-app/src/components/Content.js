@@ -4,16 +4,16 @@ import {LocaitonContext} from "../context/LocationContext"
 
 
 function Content() {
-  const {weatherData} = useContext(WeatherContext)
-  const {location} = useContext(LocaitonContext)
+  const {weatherData} = useContext(WeatherContext);
+  const {location} = useContext(LocaitonContext);
 
 
   return (
     <div>
     
-     <p>
       {location}
-     </p>
+      <code> {JSON.stringify(weatherData)} </code>
+   
       
     </div>
   )
