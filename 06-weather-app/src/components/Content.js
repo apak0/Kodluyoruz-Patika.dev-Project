@@ -1,15 +1,19 @@
 import React, {useContext} from 'react'
 import { WeatherContext } from '../context/WeatherContext'
+import {LocaitonContext} from "../context/LocationContext"
 
 
 function Content() {
   const {weatherData} = useContext(WeatherContext)
+  const {location} = useContext(LocaitonContext)
 
 
   return (
     <div>
-      {console.log(weatherData)}
-      {/* <p>{weatherData.data.location.name}</p> */}
+    
+     <p>
+      {location}
+     </p>
       
     </div>
   )

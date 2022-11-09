@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 export const LocaitonContext = createContext();
 
-export const LocationProvider = (props) => {
+export const LocationProvider = ({children}) => {
   const [location, setLocation] = useState("");
 
   const data = {
@@ -11,7 +11,7 @@ export const LocationProvider = (props) => {
   };
   return (
     <LocaitonContext.Provider value={data}>
-      {props.children}
+      {children}
     </LocaitonContext.Provider>
   );
 };
