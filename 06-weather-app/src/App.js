@@ -10,8 +10,8 @@ function App() {
       <LocationProvider>
         
         <WeatherProvider>
-          <SearchCity/>
           <Content/>
+          <SearchCity/>
         </WeatherProvider>
       </LocationProvider>
       

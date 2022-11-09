@@ -9,7 +9,7 @@ function Content() {
   return (
     <div>
       {console.log(weatherData)}
-      <p>{weatherData.data.location.name}</p>
+      {/* <p>{weatherData.data.location.name}</p> */}
       
     </div>
   )

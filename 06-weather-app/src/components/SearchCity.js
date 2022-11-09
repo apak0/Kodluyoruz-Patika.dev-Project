@@ -10,8 +10,8 @@ function SearchCity() {
   
 
   
-  const  onSubmit = async (e) =>{
-   await setLocation(location)
+  const  onSubmit =  (e) =>{
+    setLocation(location)
     e.preventDefault();
     setLocation("")
     

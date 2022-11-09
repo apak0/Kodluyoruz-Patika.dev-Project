@@ -1,6 +1,5 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import axios from "axios";
-
 import { LocaitonContext } from "./LocationContext";
 
 export const WeatherContext = createContext();
@@ -19,6 +18,7 @@ export const WeatherProvider = (props) => {
             setWeatherData(response)
         }
         getStoreData();
+        setLocation(location)
     },[location])
 
 //   axios(`${url}${apiKey}&q=${location}&aqi=no`)
