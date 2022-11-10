@@ -8,12 +8,12 @@ export const WeatherProvider = ({children}) => {
   const { location } = useContext(LocaitonContext);
   const [weatherData, setWeatherData] = useState({});
 
-  const url = "http://api.weatherapi.com/v1/future.json?key=";
-  const apiKey = "999fe6229ff940f1ab0191452220911";
+  const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=`;
+  const apiKey = "e591a1f820874cceb1283b604d01a663";
 
     useEffect(() => {
         async function getStoreData () {
-            const response = await axios(`${url}${apiKey}&q=${location}&aqi=no`)
+            const response = await axios(`${url}${location}&key=${apiKey}`)
             setWeatherData(response)
             console.log(response);
         }

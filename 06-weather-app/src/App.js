@@ -1,8 +1,11 @@
 import React from 'react'
+import './App.css';
 import Content from './components/Content'
 import SearchCity from "./components/SearchCity"
 import { LocationProvider } from './context/LocationContext'
 import {  WeatherProvider } from './context/WeatherContext'
+import ComponentNavbar from './components/ComponentNavbar';
+
 
 function App() {
 
@@ -11,8 +14,9 @@ function App() {
     <div>
       <LocationProvider>
         <WeatherProvider>
-          <Content/>
+          <ComponentNavbar/>
           <SearchCity/>
+          <Content/>
         </WeatherProvider>
       </LocationProvider>
       
