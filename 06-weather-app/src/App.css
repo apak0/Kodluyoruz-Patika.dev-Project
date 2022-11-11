@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.form{
+.form {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -12,16 +12,20 @@
 }
 
 .form input {
-  background-color: #FDFDBD;
+  background-color: #fdfdbd;
   text-align: center;
 }
 
 .cards {
   display: flex;
-  
 }
 
 .card {
   margin: 5px;
 }
 
+.center {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}

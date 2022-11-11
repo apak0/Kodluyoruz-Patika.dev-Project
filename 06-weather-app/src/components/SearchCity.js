@@ -13,7 +13,7 @@ function SearchCity() {
   const onSubmit = (e) => {
     e.preventDefault();
     setLocation(prevLocation);
-    console.log(location);
+    
   };
 
   return (
