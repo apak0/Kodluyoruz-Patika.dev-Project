@@ -7,7 +7,7 @@ function SearchCity() {
   const { location, setLocation } = useContext(LocaitonContext);
 
   const [prevLocation, setPrevLocation] = useState("");
-
+  
   const {weatherData} = useContext(WeatherContext)
 
   const onSubmit = (e) => {

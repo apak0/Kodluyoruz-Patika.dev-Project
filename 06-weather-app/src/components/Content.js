@@ -11,18 +11,23 @@ import {
   ListGroupItem,
 } from "reactstrap";
 
-const arr = ["ahmet","mehmet","metin"]
+
 
 function Content() {
   const { weatherData } = useContext(WeatherContext);
   const { location } = useContext(LocaitonContext);
-  const DailyData = JSON.stringify(weatherData.data) ? JSON.stringify(weatherData.data) : null;
-  console.log(DailyData)
-
+  // const DailyData = JSON.stringify(weatherData.data) ? JSON.stringify(weatherData.data.data) : "Data0";
+  // console.log(DailyData)
+  const DailyData = JSON.stringify(weatherData.data.data)
   return (
 
     <div>
       {DailyData}
+      {/* { JSON.stringify(weatherData.data) ? JSON.stringify(weatherData.data).map((item) => {
+        return (
+          <p> {weatherData}</p>
+        )
+      })  : "data0" } */}
     </div>
 
     // <div className="cards">
