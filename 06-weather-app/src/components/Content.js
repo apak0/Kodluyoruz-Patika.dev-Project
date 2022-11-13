@@ -16,13 +16,15 @@ import {
 function Content() {
   const { weatherData } = useContext(WeatherContext);
   const { location } = useContext(LocaitonContext);
-  const DailyData = weatherData === undefined || "" ? "Data0" :  JSON.stringify(weatherData) ;
-  console.log( `dailydata= ${DailyData}`);
+  const DailyData = !weatherData.data ? "data0" : JSON.stringify(weatherData.data.data[1].temp)  ;
+  
+
+  console.log( `dailydata=`+ DailyData);
  
   return (
 
     <div>
-      {DailyData.data}
+      {DailyData}
       {/* { JSON.stringify(weatherData.data) ? JSON.stringify(weatherData.data).map((item) => {
         return (
           <p> {weatherData}</p>
