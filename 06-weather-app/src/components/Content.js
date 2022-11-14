@@ -16,56 +16,34 @@ import {
 function Content() {
   const { weatherData } = useContext(WeatherContext);
   const { location } = useContext(LocaitonContext);
-  const DailyData = !weatherData.data ? "data0" : JSON.stringify(weatherData.data.data[1].temp)  ;
+  const DailyData = !weatherData ? "data0" : weatherData  ;
   
-
-  console.log( `dailydata=`+ DailyData);
+  console.log(`dailyadata ${DailyData}`);
+  // console.log( JSON.parse(DailyData)[1].high_temp );
  
   return (
 
-    <div>
-      {DailyData}
-      {/* { JSON.stringify(weatherData.data) ? JSON.stringify(weatherData.data).map((item) => {
-        return (
-          <p> {weatherData}</p>
-        )
-      })  : "data0" } */}
-    </div>
-
-    // <div className="cards">
+    <div className="cards">
       
-    //   {data ? 
-    //     data.map((day) => {
-    //       return (
-    //       <Card style={{ width: "18rem",}}>
-    //         <img alt="Card" src="https://picsum.photos/300/200" />
-    //         <CardBody>
-    //           <CardTitle tag="h5"></CardTitle>
-    //           <CardText>{day[1]} </CardText>
-    //         </CardBody>
-    //         <ListGroup flush>
-    //           <ListGroupItem>Sıcaklık: 25 °C</ListGroupItem>
-    //           <ListGroupItem>Yağış: 1%</ListGroupItem>
-    //           <ListGroupItem>Rüzgar: 25 km/s</ListGroupItem>
-    //           <ListGroupItem>Nem: 71%</ListGroupItem>
-    //         </ListGroup>
-    //       </Card>
-    //       )
-    //     })
-    //    : (
-    //     <div className="center">
-    //       <Alert>
-    //         <h4 className="alert-heading">Hoşgeldiniz</h4>
-    //         <p>
-    //           Lütfen haftalık hava durumunu öğrenmek istediğiniz şehrin ismini
-    //           yazınız.
-    //         </p>
-    //         <hr />
-    //       </Alert>
-    //     </div>
-    //   )}
-    // </div>
-  );
+      {
+        weatherData === "" ?  "Data yüklenmedi" :
+      
+      <Card style={{ width: "18rem",}}>
+            <img alt="Card" src="https://picsum.photos/300/200" />
+            <CardBody>
+              <CardTitle tag="h5"></CardTitle>
+              <CardText></CardText>
+            </CardBody>
+            <ListGroup flush>
+               <ListGroupItem></ListGroupItem>
+             {/* <ListGroupItem>{DailyData[1].pop}</ListGroupItem>
+              <ListGroupItem>{DailyData[1].wind_spd}km/s</ListGroupItem>
+              <ListGroupItem>{DailyData[1].rh}%</ListGroupItem> */}
+            </ListGroup>
+          </Card>
 }
+    </div>
+ )}
+
 
 export default Content;

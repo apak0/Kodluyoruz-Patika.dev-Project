@@ -13,8 +13,8 @@ export const WeatherProvider = ({children}) => {
 
     useEffect(() => {
         async function getStoreData () {
-            const response = await axios(`${url}${location}&key=${apiKey}`)
-            .then(response =>setWeatherData(location ? response  : null) )
+            const responseData = await axios(`${url}${location}&key=${apiKey}`)
+            .then(response =>setWeatherData(location ? response.data.data  : null) )
             
             // console.log( response );
         }
