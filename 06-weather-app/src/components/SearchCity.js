@@ -1,15 +1,11 @@
 import { useContext, useState } from "react";
 import { LocaitonContext } from "../context/LocationContext";
-import { WeatherContext } from "../context/WeatherContext";
-import { Button, FormGroup, Input } from "reactstrap";
+import { Button, Input } from "reactstrap";
 
 function SearchCity() {
   const { location, setLocation } = useContext(LocaitonContext);
-
   const [prevLocation, setPrevLocation] = useState("");
   
-  const {weatherData} = useContext(WeatherContext)
-
   const onSubmit = (e) => {
     e.preventDefault();
     setLocation(prevLocation);
@@ -32,7 +28,6 @@ function SearchCity() {
         <Button color="info" outline className="mt-2 ">
           Search{" "}
         </Button>
-        {location}
         
       </form>
     </div>

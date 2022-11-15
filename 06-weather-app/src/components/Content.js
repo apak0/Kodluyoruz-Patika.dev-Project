@@ -11,39 +11,44 @@ import {
   ListGroupItem,
 } from "reactstrap";
 
-
-
 function Content() {
   const { weatherData } = useContext(WeatherContext);
   const { location } = useContext(LocaitonContext);
-  const DailyData = !weatherData ? "data0" : weatherData  ;
-  
-  console.log(`dailyadata ${DailyData}`);
-  // console.log( JSON.parse(DailyData)[1].high_temp );
- 
+  const mondayClouds = weatherData && weatherData;
+
+  console.log( typeof mondayClouds);
+  console.log(mondayClouds)
+
   return (
-
     <div className="cards">
-      
-      {
-        weatherData === "" ?  "Data yüklenmedi" :
-      
-      <Card style={{ width: "18rem",}}>
-            <img alt="Card" src="https://picsum.photos/300/200" />
-            <CardBody>
-              <CardTitle tag="h5"></CardTitle>
-              <CardText></CardText>
-            </CardBody>
-            <ListGroup flush>
-               <ListGroupItem></ListGroupItem>
-             {/* <ListGroupItem>{DailyData[1].pop}</ListGroupItem>
-              <ListGroupItem>{DailyData[1].wind_spd}km/s</ListGroupItem>
-              <ListGroupItem>{DailyData[1].rh}%</ListGroupItem> */}
-            </ListGroup>
-          </Card>
-}
+     { 
+      weatherData && Object.keys(mondayClouds).map((item, index) => {
+       return (
+        <div key={index} >{item.clouds}</div>
+       )  
+      })
+     }
     </div>
- )}
+  );
 
+  // <Card
+  //         style={{
+  //           width: "18rem",
+  //         }}
+  //       >
+  //         <img alt="Card" src="https://picsum.photos/300/200" />
+  //         <CardBody>
+  //           <CardTitle tag="h5">
+  //             {location} {item.datetime}
+  //           </CardTitle>
+            
+  //         </CardBody>
+  //         <ListGroup flush>
+  //           <ListGroupItem>{item.high_temp}/C </ListGroupItem>
+  //           <ListGroupItem>{item.rh}/km </ListGroupItem>
+  //           <ListGroupItem>{item.pop} </ListGroupItem>
+  //         </ListGroup>
+  //       </Card>;
+}
 
 export default Content;
