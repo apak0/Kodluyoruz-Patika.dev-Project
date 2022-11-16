@@ -12,43 +12,37 @@ import {
 } from "reactstrap";
 
 function Content() {
+
+
   const { weatherData } = useContext(WeatherContext);
   const { location } = useContext(LocaitonContext);
+  const cityName = location.charAt(0).toUpperCase() + location.slice(1);
+
   const mondayClouds = weatherData && weatherData;
 
-  console.log( typeof mondayClouds);
-  console.log(mondayClouds)
+  console.log(typeof mondayClouds);
+  console.log(mondayClouds);
 
   return (
     <div className="cards">
-     { 
-      weatherData && Object.keys(mondayClouds).map((item, index) => {
-       return (
-        <div key={index} >{item.clouds}</div>
-       )  
-      })
-     }
+      {mondayClouds &&
+        mondayClouds.slice(0, 7).map((item, index) => (
+         <Card key={index} style={{ width: "18rem",}}>
+            <img className="cardImage" alt="Card" src={`https://www.weatherbit.io/static/img/icons/${item.weather.icon}.png`} />
+            <CardBody>
+              <CardTitle className="textAlight: center" tag="h5">
+                {cityName}
+              </CardTitle>
+            </CardBody>
+            <ListGroup flush>
+              <ListGroupItem>{item.high_temp}/C </ListGroupItem>
+              <ListGroupItem>{item.rh}/km </ListGroupItem>
+              <ListGroupItem>{item.pop} </ListGroupItem>
+            </ListGroup>
+          </Card>
+        ))}
     </div>
   );
-
-  // <Card
-  //         style={{
-  //           width: "18rem",
-  //         }}
-  //       >
-  //         <img alt="Card" src="https://picsum.photos/300/200" />
-  //         <CardBody>
-  //           <CardTitle tag="h5">
-  //             {location} {item.datetime}
-  //           </CardTitle>
-            
-  //         </CardBody>
-  //         <ListGroup flush>
-  //           <ListGroupItem>{item.high_temp}/C </ListGroupItem>
-  //           <ListGroupItem>{item.rh}/km </ListGroupItem>
-  //           <ListGroupItem>{item.pop} </ListGroupItem>
-  //         </ListGroup>
-  //       </Card>;
 }
 
 export default Content;
