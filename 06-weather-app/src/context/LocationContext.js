@@ -1,9 +1,10 @@
 import { createContext, useState } from "react";
 
 export const LocaitonContext = createContext();
+ 
 
 export const LocationProvider = ({children}) => {
-  const [location, setLocation] = useState("Ankara");
+  const [location, setLocation] = useState("bursa");
 
   const data = {
     location,

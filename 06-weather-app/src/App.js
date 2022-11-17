@@ -12,14 +12,16 @@ function App() {
   
   return (
     <div>
+      <div className='previousDiv' >
+
+     </div>
       <LocationProvider>
         <WeatherProvider>
-          
           <SearchCity/>
-          <Content/>
+          <Content />
         </WeatherProvider>
       </LocationProvider>
-      
+       
     </div>
   )
 }

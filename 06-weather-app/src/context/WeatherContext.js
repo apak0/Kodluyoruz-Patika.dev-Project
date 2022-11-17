@@ -8,18 +8,21 @@ export const WeatherContext = createContext();
 export const WeatherProvider = ({ children }) => {
   const { location } = useContext(LocaitonContext);
   const [weatherData, setWeatherData] = useState();
-  const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=`;
-  const apiKey = "e591a1f820874cceb1283b604d01a663";
+  const url = "https://api.weatherapi.com/v1/forecast.json?key=";
+  const apiKey = "999fe6229ff940f1ab0191452220911";
+  const weekday = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"]
 
   useEffect(() => {
-    axios(`${url}${location},NC&key=${apiKey}`)
-      .then((response) => response.data.data)
-      .then((item) =>  setWeatherData(item))
+     axios(`${url}${apiKey}&q=${location}&days=7&aqi`)
+      .then((response) =>response.data.forecast.forecastday)
+      .then((item) =>  setWeatherData(item)  )
       .catch((err) => console.log(err));
   }, [location]);
 
   const data = {
-    weatherData
+    weatherData,
+    weekday
+   
   };
   return (
     <WeatherContext.Provider value={data}>{children}</WeatherContext.Provider>
