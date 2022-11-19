@@ -27,7 +27,7 @@ function Content() {
     <div className="cards">
       {dayOfWeek &&
         dayOfWeek.map((item, index) => (
-         <Card key={index} style={{ width: "18rem",}}>
+         <Card key={index} style={{ backgroundColor: "#e5e5e5", width: "18rem",}}>
           <CardBody className="dayName" style={styles}>
             {weekday[new Date(item.date).getDay()]}
             

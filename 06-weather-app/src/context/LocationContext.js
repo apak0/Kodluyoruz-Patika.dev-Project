@@ -4,7 +4,7 @@ export const LocaitonContext = createContext();
  
 
 export const LocationProvider = ({children}) => {
-  const [location, setLocation] = useState("bursa");
+  const [location, setLocation] = useState("");
 
   const data = {
     location,
