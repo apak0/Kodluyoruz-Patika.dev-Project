@@ -16,6 +16,7 @@
 .form input {
   background-color: #fdfdbd;
   text-align: center;
+  margin-top: 5px;
 }
 
 .cards {
