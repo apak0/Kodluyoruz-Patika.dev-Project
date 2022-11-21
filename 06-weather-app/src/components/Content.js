@@ -15,8 +15,8 @@ function Content() {
     color:"#64C9CF"
   }
 
-  const dayOfWeek = weatherData;
-  console.log(dayOfWeek)
+  // const dayOfWeek = weatherData;
+  // console.log(dayOfWeek)
   console.log(weatherData)
 
   
@@ -25,24 +25,28 @@ function Content() {
 
   return (
     <div className="cards">
-      {dayOfWeek &&
-        dayOfWeek.map((item, index) => (
+
+      
+
+
+      {weatherData &&
+        weatherData.next_days.map((item, index) => (
          <Card key={index} style={{ backgroundColor: "#e5e5e5", width: "18rem",}}>
           <CardBody className="dayName" style={styles}>
-            {weekday[new Date(item.date).getDay()]}
+            
             
             
           </CardBody>
-            <img className="cardImage" alt="Card" src={item.day.condition.icon} />
+            <img className="cardImage" alt="Card" src={item.iconURL} />
             <CardBody>
               <CardTitle className="cardTitle" tag="h5">
                 {location.name}
               </CardTitle>
             </CardBody>
             <ListGroup flush  className="cardItems" >
-              <ListGroupItem >Sıcaklık: {Math.round(item.day.maxtemp_c) }/{Math.round(item.day.mintemp_c)} °C </ListGroupItem>
-              <ListGroupItem >Rüzgar: {item.day.maxwind_kph}km/s </ListGroupItem>
-              <ListGroupItem>Yağış: %{item.day.daily_chance_of_rain} </ListGroupItem>
+              <ListGroupItem >Sıcaklık: {item.max_temp.c}/ °C </ListGroupItem>
+              <ListGroupItem >Rüzgar: {}km/s </ListGroupItem>
+              <ListGroupItem>Yağış: %{} </ListGroupItem>
             </ListGroup>
           </Card>
         ))}
