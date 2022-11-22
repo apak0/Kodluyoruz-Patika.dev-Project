@@ -37,7 +37,7 @@ function Content() {
             
             
           </CardBody>
-            <img className="cardImage" alt="Card" src={item.iconURL} />
+            <img className="cardImage" alt="Card" />
             <CardBody>
               <CardTitle className="cardTitle" tag="h5">
                 {location.name}
