@@ -15,41 +15,55 @@ function Content() {
     color:"#64C9CF"
   }
 
-  // const dayOfWeek = weatherData;
-  // console.log(dayOfWeek)
-  console.log(weatherData)
-
-  
-  
  
+  console.log(weatherData)
 
   return (
     <div className="cards">
-
       
-
-
-      {weatherData &&
-        weatherData.next_days.map((item, index) => (
-         <Card key={index} style={{ backgroundColor: "#e5e5e5", width: "18rem",}}>
-          <CardBody className="dayName" style={styles}>
-            
-            
-            
-          </CardBody>
-            <img className="cardImage" alt="Card" />
-            <CardBody>
-              <CardTitle className="cardTitle" tag="h5">
-                {location.name}
-              </CardTitle>
+        {weatherData &&
+              
+          <Card style={{ backgroundColor: "#e5e5e5", width: "25rem",}}>
+            <CardBody className="dayName" style={styles}>
+            {weatherData.next_days[0].day}
             </CardBody>
-            <ListGroup flush  className="cardItems" >
-              <ListGroupItem >Sıcaklık: {item.max_temp.c}/ °C </ListGroupItem>
-              <ListGroupItem >Rüzgar: {}km/s </ListGroupItem>
-              <ListGroupItem>Yağış: %{} </ListGroupItem>
-            </ListGroup>
-          </Card>
-        ))}
+                <img className="" alt="Card" src={weatherData.currentConditions.iconURL}/>
+                  <CardBody>
+                    <CardTitle className="cardTitle" tag="h5">
+                    {weatherData.currentConditions.comment}
+                    </CardTitle>
+                  </CardBody>
+                  <ListGroup flush  className="cardItems" >
+                    <ListGroupItem >Sıcaklık: {weatherData.next_days[0].max_temp.c}/ {weatherData.next_days[0].min_temp.c} °C </ListGroupItem>
+                    <ListGroupItem >Rüzgar: {weatherData.currentConditions.wind.km}km/s </ListGroupItem>
+                    <ListGroupItem>Yağış: {weatherData.currentConditions.precip} </ListGroupItem>
+                    <ListGroupItem>Nem: {weatherData.currentConditions.humidity} </ListGroupItem>
+                  </ListGroup>
+                </Card>
+            }
+     
+       
+      
+          {weatherData &&
+             weatherData.next_days.slice(1, -1).map((item, index) => (
+          
+              <Card key={index} style={{ backgroundColor: "#e5e5e5", width: "18rem", marginTop:"5rem",}}>
+                <CardBody className="dayName" style={styles}>
+                  
+                  {item.day}
+                </CardBody>
+                  <img className="cardImage" alt="Card" src={item.iconURL}/>
+                  <CardBody>
+                   
+                  </CardBody>
+                  <ListGroup flush  className="cardItems" >
+                    <ListGroupItem >Sıcaklık: {item.max_temp.c}/{item.min_temp.c} °C </ListGroupItem>
+                    
+                  </ListGroup>
+                </Card>
+      ))}
+        
+      
     </div>
   );
 }
