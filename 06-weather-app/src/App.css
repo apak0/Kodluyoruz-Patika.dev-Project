@@ -20,13 +20,13 @@
 
 .cards {
   display: flex;
+  height: 25rem;
   
- 
 }
 
 .card {
   margin: 5px;
-}
+} 
 
 .cardItems{
   text-align: center;
@@ -70,4 +70,8 @@
 .sideContent{
   position:fixed;
   text-align: center;
+}
+
+.cardImage{
+  height: 5rem;
 }
