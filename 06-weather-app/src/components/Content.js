@@ -24,10 +24,11 @@ function Content() {
         {weatherData &&
               
           <Card style={{ backgroundColor: "#e5e5e5", width: "25rem",}}>
-            <CardBody className="dayName" style={styles}>
+            <div className="dayName" style={styles}>
             {weatherData.next_days[0].day}
-            </CardBody>
-                <img className="cardImage" alt="Card" src={weatherData.currentConditions.iconURL}/>
+            <img className="cardImage" alt="Card" src={weatherData.currentConditions.iconURL}/>
+            </div>
+                
                   <CardBody>
                     <CardTitle className="cardTitle" tag="h5">
                     {weatherData.currentConditions.comment}
@@ -50,8 +51,9 @@ function Content() {
               <Card key={index} style={{ backgroundColor: "#e5e5e5", width: "18rem", marginTop:"5rem",}}>
                 <CardBody className="dayName" style={styles}>
                   {item.day}
-                </CardBody>
                   <img className="cardImage" alt="Card" src={item.iconURL}/>
+                </CardBody>
+                  
                  
                   <ListGroup flush  className="cardItems" >
                     <ListGroupItem >Sıcaklık: {item.max_temp.c}/{item.min_temp.c} °C </ListGroupItem>
