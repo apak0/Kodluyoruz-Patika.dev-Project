@@ -23,7 +23,7 @@ function Content() {
       
         {weatherData &&
               
-          <Card style={{ backgroundColor: "#e5e5e5", width: "25rem",}}>
+          <Card style={{ backgroundColor: "#e5e5e5", width: "15rem", maxHeight:"100px"}}>
             <div className="dayName" style={styles}>
             {weatherData.next_days[0].day}
             <img className="cardImage" alt="Card" src={weatherData.currentConditions.iconURL}/>
