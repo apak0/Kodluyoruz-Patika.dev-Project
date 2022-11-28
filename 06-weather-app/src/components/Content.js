@@ -20,7 +20,7 @@ function Content() {
 
   return (
     <div className="cards">
-      
+{/*       
         {weatherData &&
               
           <Card style={{ backgroundColor: "#e5e5e5", width: "15rem", maxHeight:"100px"}}>
@@ -61,7 +61,7 @@ function Content() {
                   </ListGroup>
                 </Card>
       ))}
-        
+         */}
       
     </div>
   );

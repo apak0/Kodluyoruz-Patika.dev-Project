@@ -8,12 +8,12 @@ export const WeatherContext = createContext({});
 export const WeatherProvider = ({ children }) => {
   const { location } = useContext(LocaitonContext);
   const [weatherData, setWeatherData] = useState();
-  const url = "https://weatherdbi.herokuapp.com/data/weather/";
-  const apiKey = "999fe6229ff940f1ab0191452220911";
+  const url = "https://api.weatherbit.io/v2.0/forecast/daily?city=";
+  const apiKey = "e591a1f820874cceb1283b604d01a663";
   const weekday = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"]
 
   useEffect(() => {
-    fetch(`${url}${location}`)
+    fetch(`${url}${location}&key=${apiKey}`)
     .then(res => res.json())
     .then(data => setWeatherData(data))
   }, [location]);
