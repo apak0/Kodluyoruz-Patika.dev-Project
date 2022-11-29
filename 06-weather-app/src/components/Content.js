@@ -16,16 +16,18 @@ function Content() {
   }
 
  
-  console.log(weatherData)
+  
 
   return (
     <div className="cards">
+
+      {weatherData && console.log(weatherData)}
 {/*       
         {weatherData &&
               
           <Card style={{ backgroundColor: "#e5e5e5", width: "15rem", maxHeight:"100px"}}>
             <div className="dayName" style={styles}>
-            {weatherData.next_days[0].day}
+            {weatherData.data[1]}
             <img className="cardImage" alt="Card" src={weatherData.currentConditions.iconURL}/>
             </div>
                 
@@ -43,25 +45,27 @@ function Content() {
                 </Card>
             }
      
-       
+       */}
       
           {weatherData &&
-             weatherData.next_days.slice(1, -1).map((item, index) => (
+             weatherData.data.map((item, index) => (
           
               <Card key={index} style={{ backgroundColor: "#e5e5e5", width: "18rem", marginTop:"5rem",}}>
                 <CardBody className="dayName" style={styles}>
-                  {item.day}
-                  <img className="cardImage" alt="Card" src={item.iconURL}/>
+                  {item.datetime}
+                  <img className="cardImage" alt="Card" 
+                  // src={item.iconURL}
+                  />
                 </CardBody>
                   
                  
                   <ListGroup flush  className="cardItems" >
-                    <ListGroupItem >Sıcaklık: {item.max_temp.c}/{item.min_temp.c} °C </ListGroupItem>
+                    <ListGroupItem >Sıcaklık: {item.app_max_temp}/{item.app_min_temp} °C </ListGroupItem>
                     
                   </ListGroup>
                 </Card>
       ))}
-         */}
+         
       
     </div>
   );
