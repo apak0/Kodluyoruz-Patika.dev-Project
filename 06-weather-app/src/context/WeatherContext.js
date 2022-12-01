@@ -15,7 +15,7 @@ export const WeatherProvider = ({ children }) => {
   useEffect(() => {
     fetch(`${url}${location}&key=${apiKey}`)
     .then(res => res.json())
-    .then(data => setWeatherData(data))
+    .then(data => setWeatherData(data.data))
   }, [location]);
 
   const data = {

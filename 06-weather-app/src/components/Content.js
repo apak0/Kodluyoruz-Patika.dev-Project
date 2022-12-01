@@ -9,19 +9,19 @@ function Content() {
 
 
   const { weatherData, weekday } = useContext(WeatherContext);
-  const { location } = useContext(LocaitonContext);
-  const cityName = location.charAt(0).toUpperCase() + location.slice(1);
+  // const { location } = useContext(LocaitonContext);
+  // const cityName = location.charAt(0).toUpperCase() + location.slice(1);
   const styles ={
     color:"#64C9CF"
   }
 
- 
+
   
 
   return (
     <div className="cards">
 
-      {weatherData && console.log(weatherData)}
+     
 {/*       
         {weatherData &&
               
@@ -46,15 +46,14 @@ function Content() {
             }
      
        */}
-      
-          {weatherData &&
-             weatherData.data.map((item, index) => (
+       
+          {weatherData && weatherData.slice(1, -7).map((item, index) => (
           
               <Card key={index} style={{ backgroundColor: "#e5e5e5", width: "18rem", marginTop:"5rem",}}>
                 <CardBody className="dayName" style={styles}>
-                  {item.datetime}
-                  <img className="cardImage" alt="Card" 
-                  // src={item.iconURL}
+                  
+                  <img className="cardImage" alt="Card" src=`${item.icons}`
+                  
                   />
                 </CardBody>
                   
