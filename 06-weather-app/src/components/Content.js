@@ -15,7 +15,7 @@ function Content() {
     color:"#64C9CF"
   }
 
-
+console.log (weatherData )
   
 
   return (
@@ -27,42 +27,98 @@ function Content() {
               
           <Card style={{ backgroundColor: "#e5e5e5", width: "15rem", maxHeight:"100px"}}>
             <div className="dayName" style={styles}>
-            {weatherData.data[1]}
-            <img className="cardImage" alt="Card" src={weatherData.currentConditions.iconURL}/>
+            {weatherData[Object.keys(weatherData)[0]]}
+            <img className="cardImage" alt="Card" />
             </div>
                 
                   <CardBody>
                     <CardTitle className="cardTitle" tag="h5">
-                    {weatherData.currentConditions.comment}
+                    {}
                     </CardTitle>
                   </CardBody>
                   <ListGroup flush  className="cardItems" >
-                    <ListGroupItem >Sıcaklık: {weatherData.next_days[0].max_temp.c}/ {weatherData.next_days[0].min_temp.c} °C </ListGroupItem>
-                    <ListGroupItem >Rüzgar: {weatherData.currentConditions.wind.km}km/s </ListGroupItem>
-                    <ListGroupItem>Yağış: {weatherData.currentConditions.precip} </ListGroupItem>
-                    <ListGroupItem>Nem: {weatherData.currentConditions.humidity} </ListGroupItem>
+                    <ListGroupItem >Sıcaklık: {}/ {} °C </ListGroupItem>
+                    <ListGroupItem >Rüzgar: {}km/s </ListGroupItem>
+                    <ListGroupItem>Yağış: {} </ListGroupItem>
+                    <ListGroupItem>Nem: {} </ListGroupItem>
                   </ListGroup>
                 </Card>
             }
      
-       */}
-       
-          {weatherData && weatherData.slice(1, -7).map((item, index) => (
+      */}
+
+      
+    {/* {weatherData && weatherData.slice(-2, -1).map((item, index) => (
           
-              <Card key={index} style={{ backgroundColor: "#e5e5e5", width: "18rem", marginTop:"5rem",}}>
+          <Card style={{ backgroundColor: "#e5e5e5", width: "15rem", maxHeight:"150px"}}>
+          <div className="dayName" style={styles}>
+          
+          <img className="cardImage" alt="Card"  src={`https://www.weatherbit.io/static/img/icons/${item.weather.icon}.png`} />
+          </div>
+              
+                <CardBody>
+                  <CardTitle className="cardTitle" tag="h5">
+                  {}
+                  </CardTitle>
+                </CardBody>
+                <ListGroup flush  className="cardItems" >
+                  <ListGroupItem >Sıcaklık: {}/ {} °C </ListGroupItem>
+                  <ListGroupItem >Rüzgar: {}km/s </ListGroupItem>
+                  <ListGroupItem>Yağış: {} </ListGroupItem>
+                  <ListGroupItem>Nem: {} </ListGroupItem>
+                </ListGroup>
+              </Card>
+
+            
+  ))}  */}
+
+{weatherData && weatherData.slice(-2, -1).map((item, index) => (
+          
+          <Card key={index} style={{ backgroundColor: "#e5e5e5", width: "18rem", maxHeight:"150px", marginTop:"5rem",}}>
+            <h5> 
+            {weekday[new Date(item.datetime).getDay()]}
+            </h5>
+            <CardBody className="dayName" style={styles}>
+              
+              <img className="cardImage" alt="Card"  src={`https://www.weatherbit.io/static/img/icons/${item.weather.icon}.png`}
+              />
+            </CardBody>
+              
+             
+              <ListGroup flush  className="cardItems" >
+                <ListGroupItem >Sıcaklık: {item.app_max_temp} / {item.app_min_temp} °C </ListGroupItem>
+                <ListGroupItem >Rüzgar: {}km/s </ListGroupItem>
+                <ListGroupItem>Yağış: {} </ListGroupItem>
+                <ListGroupItem>Nem: {} </ListGroupItem>
+              </ListGroup>
+            </Card>
+
+            
+  ))}
+     
+
+        
+       
+          {weatherData && weatherData.slice(1, -8).map((item, index) => (
+          
+              <Card key={index} style={{ backgroundColor: "#e5e5e5", width: "18rem", maxHeight:"150px", marginTop:"5rem",}}>
+                <h5> 
+                {weekday[new Date(item.datetime).getDay()]}
+                </h5>
                 <CardBody className="dayName" style={styles}>
                   
-                  <img className="cardImage" alt="Card" src=`${item.icons}`
-                  
+                  <img className="cardImage" alt="Card"  src={`https://www.weatherbit.io/static/img/icons/${item.weather.icon}.png`}
                   />
                 </CardBody>
                   
                  
                   <ListGroup flush  className="cardItems" >
-                    <ListGroupItem >Sıcaklık: {item.app_max_temp}/{item.app_min_temp} °C </ListGroupItem>
+                    <ListGroupItem >Sıcaklık: {item.app_max_temp} / {item.app_min_temp} °C </ListGroupItem>
                     
                   </ListGroup>
                 </Card>
+
+                
       ))}
          
       
