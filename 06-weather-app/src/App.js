@@ -12,11 +12,9 @@ function App() {
 
   
   return (
-    <div>
-      {/* <div className='previousDiv' >
-
-     </div> */}
-      <div className='previousDiv'  >
+    <div className='previousDiv' >
+     
+      <div  >
       <LocationProvider>
         <WeatherProvider className="row" >
           
