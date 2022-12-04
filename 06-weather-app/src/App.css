@@ -58,6 +58,11 @@
   right: 0;
   bottom: 0;
   z-index: -1;
+  background-image: url("./images/app-background.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   
 }
 

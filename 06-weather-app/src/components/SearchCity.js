@@ -24,34 +24,7 @@ function SearchCity() {
 
 
       <form className="form " onSubmit={onSubmit}>
-
-         {/* <div className="col-6" > 
-            {weatherData && weatherData.slice(-2, -1).map((item, index) => (
-            
-            <Card key={index} style={{ backgroundColor: "#e5e5e5", width: "18rem", maxHeight:"150px", marginTop:"5rem",}}>
-              <h5> 
-              {weekday[new Date(item.datetime).getDay()]}
-              </h5>
-              <CardBody className="dayName" style={styles}>
-                
-                <img className="cardImage" alt="Card"  src={`https://www.weatherbit.io/static/img/icons/${item.weather.icon}.png`}
-                />
-              </CardBody>
-                
-              
-                <ListGroup flush  className="cardItems" >
-                  <ListGroupItem >Sıcaklık: {item.app_max_temp} / {item.app_min_temp} °C </ListGroupItem>
-                  <ListGroupItem >Rüzgar: {}km/s </ListGroupItem>
-                  <ListGroupItem>Yağış: {} </ListGroupItem>
-                  <ListGroupItem>Nem: {} </ListGroupItem>
-                </ListGroup>
-              </Card>
-          ))}
-        </div>   */}
-
-        
-           
-          <Input
+        <Input
             id="exampleSearch"
             name="search"
             type="search"
