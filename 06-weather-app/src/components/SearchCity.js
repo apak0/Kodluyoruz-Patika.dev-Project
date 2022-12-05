@@ -16,12 +16,14 @@ function SearchCity() {
   const onSubmit = (e) => {
     e.preventDefault();
     setLocation(prevLocation);
+    setPrevLocation("")
+   
     
   };
 
   return (
     <div className="mt-3">
-
+      <h2 style={{display:"flex"}} >{location}</h2>
 
       <form className="form " onSubmit={onSubmit}>
         <Input
@@ -29,7 +31,8 @@ function SearchCity() {
             name="search"
             type="search"
             onChange={(e) => {
-              setPrevLocation(e.target.value);
+              setPrevLocation(e.target.value)
+             
             }}
             placeholder="City Name"
             value={prevLocation}
