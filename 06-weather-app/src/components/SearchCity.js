@@ -23,7 +23,10 @@ function SearchCity() {
 
   return (
     <div className="mt-3">
-      <h2 style={{display:"flex"}} >{location}</h2>
+      <div style={{textAlign:"center"}}>
+        <h2 style={{display:"inline", color:"#EFC050", backgroundColor:"rgb(223, 111, 190 , 0.1)"}} >{location}</h2>
+      </div>
+
 
       <form className="form " onSubmit={onSubmit}>
         <Input

@@ -25,13 +25,14 @@ function Content() {
           <Card
             key={index}
             style={{
-              backgroundColor: "aqua",
+              backgroundColor: "RGB(85, 180, 176, 0.5)",
               width: "33rem",
               maxHeight: "150px",
+              textAlign:"center"
             }}
           >
             <h5>{weekday[new Date(item.datetime).getDay()]}</h5>
-            <CardBody className="dayName" style={styles}>
+            <CardBody className="dayName" >
               <img
                 className="cardImage"
                 alt="Card"
@@ -50,18 +51,19 @@ function Content() {
         ))}
 
       {weatherData &&
-        weatherData.slice(1, -8).map((item, index) => (
+        weatherData.slice(1,7).map((item, index) => (
           <Card
             key={index}
             style={{
-              backgroundColor: "#e5e5e5",
+              backgroundColor: "#E14D2A",
               width: "18rem",
               maxHeight: "150px",
               marginTop: "5rem",
+              
             }}
           >
-            <h5>{weekday[new Date(item.datetime).getDay()]}</h5>
-            <CardBody className="dayName" style={styles}>
+            <h5  style={{textAlign:"center"}}>{weekday[new Date(item.datetime).getDay()]}</h5>
+            <CardBody className="dayName" >
               <img
                 className="cardImage"
                 alt="Card"
@@ -70,8 +72,8 @@ function Content() {
             </CardBody>
 
             <ListGroup flush className="cardItems">
-              <ListGroupItem>
-                Sıcaklık: {item.app_max_temp} / {item.app_min_temp} °C{" "}
+              <ListGroupItem style={{color:""}} >
+                {item.app_max_temp} / {item.app_min_temp} °C{" "}
               </ListGroupItem>
             </ListGroup>
           </Card>
