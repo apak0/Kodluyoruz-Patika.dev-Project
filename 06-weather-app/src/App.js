@@ -14,7 +14,7 @@ function App() {
   return (
     <div className='previousDiv' >
      
-      <div  >
+      
       <LocationProvider>
         <WeatherProvider className="row" >
           
@@ -25,7 +25,7 @@ function App() {
           
         </WeatherProvider>
       </LocationProvider>
-      </div>
+     
        
     </div>
   )
