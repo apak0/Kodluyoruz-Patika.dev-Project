@@ -1,7 +1,12 @@
+/* *{
+  background-color: aqua;
 
+} */
 .App {
   text-align: center;
-  
+}
+ul {
+  list-style-type: none;
 }
 
 .form {
@@ -18,11 +23,11 @@
   margin-top: 15px;
 }
 
-
 .cardItems {
-  text-align: center;
+  text-align:start;
   font-family: Arial, Helvetica, sans-serif;
   color: #c2b8a3;
+  
 }
 
 .cardTitle {
@@ -31,33 +36,57 @@
   color: #a19882;
 }
 
-/* .previousDiv {
+.previousDiv {
   background-color: #e6ddc6;
-  
-  
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: -1;
-  
-  background-color: aqua;
   height: 100%;
+  background-color: #495579;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-} */
+}
+
 /* background-image: url("./images/app-background.jpg"); */
 
 .dayName {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   color: #533d0d;
-  background-color: rgb(253, 132, 31, 0.7);
+  display: flex;
+} 
+
+.todayCard {
+  display: flex;
+  justify-content: space-around;
 }
 
-.cardImage {
-  height: auto;
-  max-width: 100%;
+.dayNameCard {
+  align-self: flex-end;
+}
+.dayNameTodayDetails{
+  font-size: large;
+}
+
+@media (min-width:768px) {
+  h1{
+    font-size: 18px;
+  }
+  
+}
+@media (min-width:1024px) {
+  h1{
+    font-size: 19px;
+  }
+  
+}
+@media (min-width:1280px) {
+  h1{
+    font-size: 20rem;
+  }
+  
 }

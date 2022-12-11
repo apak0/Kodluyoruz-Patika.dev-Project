@@ -26,7 +26,7 @@ function SearchCity() {
   };
 
   return (
-    <div className="mt-3">
+    <div className="mt-3 mb-3">
       <form className="form " onSubmit={onSubmit}>
         <Input
           id="exampleSearch"
@@ -42,18 +42,7 @@ function SearchCity() {
           Search{" "}
         </Button>
       </form>
-      <div style={{ textAlign: "center" }}>
-        <h2
-          className="mt-3"
-          style={{
-            display: "inline",
-            color: "#EFC050",
-            backgroundColor: "rgb(223, 111, 190 , 0.1)",
-          }}
-        >
-          {location.charAt(0).toUpperCase() + location.slice(1).toLowerCase()}
-        </h2>
-      </div>
+    
     </div>
   );
 }
