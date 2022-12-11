@@ -9,12 +9,11 @@ import {
   ListGroup,
   ListGroupItem,
 } from "reactstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
-
+ 
 function Content() {
   const { weatherData, weekday } = useContext(WeatherContext);
   const { location, setLocation } = useContext(LocaitonContext);
-  console.log(weatherData);
+  console.log("asd",weatherData);
   return (
     <div className="container ">
       {/* Bugünün hava durumunu gösteren card START*/}
@@ -25,7 +24,7 @@ function Content() {
             className="todayCard"
             key={index}
             style={{
-              backgroundColor: "rgb(85, 180, 176, 0.5)",
+             border:"1px solid #FFFBEB",
               marginBottom: "1rem",
               display: "flex",
             }}
@@ -54,7 +53,7 @@ function Content() {
             </div>
             <div style={{ width: "50%" }}>
               <div className="dayNameCard" style={{ paddingLeft: "2rem" }}>
-                <h5>{weekday[new Date(item.datetime).getDay()]}</h5>
+                <h5 color="#FFFBEB" >{weekday[new Date(item.datetime).getDay()]}</h5>
               </div>
               <div className="row d-flex">
                 <div className="dayName col-2 ">
@@ -83,37 +82,37 @@ function Content() {
       {/* Bugünün hava durumunu gösteren card END*/}
 
       {/* Haftanın devamındaki günlerin hava sıcaklığını gösteren Card START     */}
-      <div className="row ms-auto me-auto">
+      <div className="flex ms-auto me-auto sm:flex-nowrap flex-wrap ">
         {weatherData &&
           weatherData.slice(1, 7).map((item, index) => (
-            <Card
-              className="col-sm-2 cold-lg-5  "
+            <div
+              className="flex-1"
               key={index}
               style={{
-                backgroundColor: "#E14D2A",
-                border: "1rem solid white",
+                
+                border:"1px solid red",
                 borderRadius: "2rem",
                 marginBottom: "3rem",
               }}
             >
-              <h5 style={{ textAlign: "center" }}>
+              <h5 style={{ textAlign: "center", }}>
                 {weekday[new Date(item.datetime).getDay()]}
               </h5>
-              <CardBody className="dayName">
+              <div className="dayName">
                 <img
                   className="cardImage"
                   alt="Card"
                   src={`https://www.weatherbit.io/static/img/icons/${item.weather.icon}.png`}
                 />
-              </CardBody>
+              </div>
 
-              <ListGroup flush className="cardItems">
-                <ListGroupItem style={{ color: "" }}>
+              <ul flush className="cardItems">
+                <li >
                   {Math.floor(item.app_max_temp)} /{" "}
                   {Math.floor(item.app_min_temp)} °C{" "}
-                </ListGroupItem>
-              </ListGroup>
-            </Card>
+                </li>
+              </ul>
+            </div>
           ))}
 
         {/* Haftanın devamındaki günlerin hava sıcaklığını gösteren Card END     */}

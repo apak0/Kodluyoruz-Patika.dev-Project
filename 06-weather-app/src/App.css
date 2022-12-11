@@ -1,10 +1,9 @@
-/* *{
-  background-color: aqua;
+.previousDiv{
+  /* background-color: #251749; */
+  background-color: rgb(143, 112, 112);
 
-} */
-.App {
-  text-align: center;
 }
+
 ul {
   list-style-type: none;
 }
@@ -12,7 +11,7 @@ ul {
 .form {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 18rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -26,37 +25,21 @@ ul {
 .cardItems {
   text-align:start;
   font-family: Arial, Helvetica, sans-serif;
-  color: #c2b8a3;
+  color: #FFFBEB;
   
 }
 
 .cardTitle {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  color: #a19882;
+  color: #FFFBEB;
 }
 
-.previousDiv {
-  background-color: #e6ddc6;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  height: 100%;
-  background-color: #495579;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-/* background-image: url("./images/app-background.jpg"); */
 
 .dayName {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  color: #533d0d;
+  color: #FFFBEB;
   display: flex;
 } 
 
@@ -72,21 +55,5 @@ ul {
   font-size: large;
 }
 
-@media (min-width:768px) {
-  h1{
-    font-size: 18px;
-  }
-  
-}
-@media (min-width:1024px) {
-  h1{
-    font-size: 19px;
-  }
-  
-}
-@media (min-width:1280px) {
-  h1{
-    font-size: 20rem;
-  }
-  
-}
+
+
