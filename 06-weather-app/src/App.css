@@ -43,10 +43,7 @@ ul {
   display: flex;
 } 
 
-.todayCard {
-  display: flex;
-  justify-content: space-around;
-}
+
 
 .dayNameCard {
   align-self: flex-end;

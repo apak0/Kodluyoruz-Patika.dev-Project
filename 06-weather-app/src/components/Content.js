@@ -9,11 +9,11 @@ import {
   ListGroup,
   ListGroupItem,
 } from "reactstrap";
- 
+
 function Content() {
   const { weatherData, weekday } = useContext(WeatherContext);
   const { location, setLocation } = useContext(LocaitonContext);
-  console.log("asd",weatherData);
+  console.log("asd", weatherData);
   return (
     <div className="container ">
       {/* Bugünün hava durumunu gösteren card START*/}
@@ -21,41 +21,34 @@ function Content() {
       {weatherData &&
         weatherData.slice(-2, -1).map((item, index) => (
           <div
-            className="todayCard"
+            className="todayCard flex justify-center w-3/6  "
             key={index}
             style={{
-             border:"1px solid #FFFBEB",
+              border: "1px solid #FFFBEB",
               marginBottom: "1rem",
-              display: "flex",
+              marginLeft:"auto",
+              marginRight:"auto"
             }}
           >
-            <div style={{
-                display:"flex",
-                justifyContent: "center",
-                alignItems: "center",
-                
-                }}>
-              <div
-                className="cityNameOnCard"
-                style={{
-                  color: "#EFC050",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  
-                }}
-              >
-                <h1>
-                  {location.charAt(0).toUpperCase() +
-                    location.slice(1).toLowerCase()}
-                </h1>
-              </div>
+            <div
+              className="cityNameOnCard flex items-center pr-5  "
+              style={{
+                color: "#EFC050",
+              }}
+            >
+              <h1 className="font-bold text-5xl mr-5 ">
+                {location.charAt(0).toUpperCase() +
+                  location.slice(1).toLowerCase()}
+              </h1>
             </div>
-            <div style={{ width: "50%" }}>
+
+            <div>
               <div className="dayNameCard" style={{ paddingLeft: "2rem" }}>
-                <h5 color="#FFFBEB" >{weekday[new Date(item.datetime).getDay()]}</h5>
+                <h5 color="#FFFBEB">
+                  {weekday[new Date(item.datetime).getDay()]}
+                </h5>
               </div>
-              <div className="row d-flex">
+              <div className="row flex">
                 <div className="dayName col-2 ">
                   <img
                     className="cardImage"
@@ -89,13 +82,12 @@ function Content() {
               className="flex-1"
               key={index}
               style={{
-                
-                border:"1px solid red",
+                border: "1px solid red",
                 borderRadius: "2rem",
                 marginBottom: "3rem",
               }}
             >
-              <h5 style={{ textAlign: "center", }}>
+              <h5 className="font-bold" style={{ textAlign: "center" }}>
                 {weekday[new Date(item.datetime).getDay()]}
               </h5>
               <div className="dayName">
@@ -107,7 +99,7 @@ function Content() {
               </div>
 
               <ul flush className="cardItems">
-                <li >
+                <li>
                   {Math.floor(item.app_max_temp)} /{" "}
                   {Math.floor(item.app_min_temp)} °C{" "}
                 </li>
