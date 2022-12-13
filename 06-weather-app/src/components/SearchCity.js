@@ -1,14 +1,7 @@
 import { useContext, useState } from "react";
 import { LocaitonContext } from "../context/LocationContext";
-import { Button, Input } from "reactstrap";
+
 import { WeatherContext } from "../context/WeatherContext";
-import {
-  Card,
-  CardBody,
-  CardTitle,
-  ListGroup,
-  ListGroupItem,
-} from "reactstrap";
 
 function SearchCity() {
   const { location, setLocation } = useContext(LocaitonContext);
@@ -28,7 +21,8 @@ function SearchCity() {
   return (
     <div className="mt-3 mb-3">
       <form className="form " onSubmit={onSubmit}>
-        <Input
+        <input
+        className="p-1"
           id="exampleSearch"
           name="search"
           type="search"
@@ -38,11 +32,14 @@ function SearchCity() {
           placeholder="City Name"
           value={prevLocation}
         />
-        <Button color="info" outline className="mt-2 ">
+        <button
+          color="info"
+          outline
+          className="mt-2 border p-1 w-full m-auto bg-blue-300 transition "
+        >
           Search{" "}
-        </Button>
+        </button>
       </form>
-    
     </div>
   );
 }

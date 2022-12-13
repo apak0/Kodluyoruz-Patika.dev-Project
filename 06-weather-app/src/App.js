@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import Content from "./components/Content";
 import SearchCity from "./components/SearchCity";
-import SideContent from "./components/SideContent";
 import { LocationProvider } from "./context/LocationContext";
 import { WeatherProvider } from "./context/WeatherContext";
 

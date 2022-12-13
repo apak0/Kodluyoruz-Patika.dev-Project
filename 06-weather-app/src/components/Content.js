@@ -2,61 +2,42 @@ import React, { useContext } from "react";
 import "../App.css";
 import { WeatherContext } from "../context/WeatherContext";
 import { LocaitonContext } from "../context/LocationContext";
-import {
-  Card,
-  CardBody,
-  CardTitle,
-  ListGroup,
-  ListGroupItem,
-} from "reactstrap";
 
 function Content() {
   const { weatherData, weekday } = useContext(WeatherContext);
   const { location, setLocation } = useContext(LocaitonContext);
   console.log("asd", weatherData);
   return (
-    <div className="container ">
+    <div className="topContainer">
       {/* Bugünün hava durumunu gösteren card START*/}
 
       {weatherData &&
         weatherData.slice(-2, -1).map((item, index) => (
-          <div
-            className="todayCard flex justify-center w-3/6  "
-            key={index}
-            style={{
-              border: "1px solid #FFFBEB",
-              marginBottom: "1rem",
-              marginLeft:"auto",
-              marginRight:"auto"
-            }}
-          >
+          <div className="flex justify-center">
             <div
-              className="cityNameOnCard flex items-center pr-5  "
-              style={{
-                color: "#EFC050",
-              }}
+              className=" flex justify-center border mb-5 w-full lg:w-2/5"
+              key={index}
             >
-              <h1 className="font-bold text-5xl mr-5 ">
-                {location.charAt(0).toUpperCase() +
-                  location.slice(1).toLowerCase()}
-              </h1>
-            </div>
-
-            <div>
-              <div className="dayNameCard" style={{ paddingLeft: "2rem" }}>
-                <h5 color="#FFFBEB">
-                  {weekday[new Date(item.datetime).getDay()]}
-                </h5>
+              <div className="flex items-center text-cityColor ">
+                <h1 className="font-bold sm:text-3xl  ">
+                  {location.charAt(0).toUpperCase() +
+                    location.slice(1).toLowerCase()}
+                </h1>
               </div>
-              <div className="row flex">
-                <div className="dayName col-2 ">
+
+              <div className="flex ">
+                <div className="">
+                  <h5 color="#FFFBEB" className="text-center text-rose-600 text-3xl  ">
+                    {weekday[new Date(item.datetime).getDay()]}
+                  </h5>
+
                   <img
                     className="cardImage"
                     alt="Card"
                     src={`https://www.weatherbit.io/static/img/icons/${item.weather.icon}.png`}
                   />
                 </div>
-                <div className="dayNameTodayDetails col-sm-5">
+                <div className="text-lg grid content-center  ">
                   <ul className="cardItems">
                     <li>
                       Sıcaklık: {Math.floor(item.app_max_temp)} /{" "}
@@ -75,30 +56,32 @@ function Content() {
       {/* Bugünün hava durumunu gösteren card END*/}
 
       {/* Haftanın devamındaki günlerin hava sıcaklığını gösteren Card START     */}
-      <div className="flex ms-auto me-auto sm:flex-nowrap flex-wrap ">
+
+      <div className="gap-4 grid sm:grid-cols-2 lg:grid-cols-6  ">
         {weatherData &&
           weatherData.slice(1, 7).map((item, index) => (
             <div
-              className="flex-1"
+              className="flex-1  p-3
+                border-cityColor
+                bg-cyan-500  shadow-lg
+                hover:shadow-cyan-500/50
+                hover:text-white
+                  transition ease-in duration-150"
               key={index}
-              style={{
-                border: "1px solid red",
-                borderRadius: "2rem",
-                marginBottom: "3rem",
-              }}
             >
-              <h5 className="font-bold" style={{ textAlign: "center" }}>
-                {weekday[new Date(item.datetime).getDay()]}
-              </h5>
-              <div className="dayName">
-                <img
-                  className="cardImage"
-                  alt="Card"
-                  src={`https://www.weatherbit.io/static/img/icons/${item.weather.icon}.png`}
-                />
+              <div>
+                <h5 className="font-bold text-center text-2xl ">
+                  {weekday[new Date(item.datetime).getDay()]}
+                </h5>
+                <div className="flex justify-center ">
+                  <img
+                    className="cardImage"
+                    alt="Card"
+                    src={`https://www.weatherbit.io/static/img/icons/${item.weather.icon}.png`}
+                  />
+                </div>
               </div>
-
-              <ul flush className="cardItems">
+              <ul flush className="cardItems text-center">
                 <li>
                   {Math.floor(item.app_max_temp)} /{" "}
                   {Math.floor(item.app_min_temp)} °C{" "}

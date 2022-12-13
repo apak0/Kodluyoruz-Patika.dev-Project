@@ -1,7 +1,8 @@
-.previousDiv{
-  /* background-color: #251749; */
-  background-color: rgb(143, 112, 112);
-
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.previousDiv {
+  background-color: #344d67;
 }
 
 ul {
@@ -23,34 +24,13 @@ ul {
 }
 
 .cardItems {
-  text-align:start;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #FFFBEB;
-  
+  color: #fffbeb;
 }
 
 .cardTitle {
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #FFFBEB;
+  color: #fffbeb;
 }
-
 
 .dayName {
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #FFFBEB;
-  display: flex;
-} 
-
-
-
-.dayNameCard {
-  align-self: flex-end;
+  color: #fffbeb;
 }
-.dayNameTodayDetails{
-  font-size: large;
-}
-
-
-
