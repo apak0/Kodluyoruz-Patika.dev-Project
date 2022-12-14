@@ -18,26 +18,31 @@ function Content() {
               className=" flex justify-center border mb-5 w-full lg:w-2/5"
               key={index}
             >
-              <div className="flex items-center text-cityColor ">
-                <h1 className="font-bold sm:text-3xl  ">
+              <div >
+               
+              </div>
+
+              <div className="flex w-full justify-evenly">
+                <div className="">
+                  
+                <h1 className="font-bold sm:text-3xl flex items-center text-cityColor">
                   {location.charAt(0).toUpperCase() +
                     location.slice(1).toLowerCase()}
                 </h1>
-              </div>
 
-              <div className="flex ">
-                <div className="">
-                  <h5 color="#FFFBEB" className="text-center text-rose-600 text-3xl  ">
+                  <h5 color="#FFFBEB" className="text-indigo-300 text-2xl  ">
                     {weekday[new Date(item.datetime).getDay()]}
                   </h5>
 
+
+
                   <img
-                    className="cardImage"
+                    className="cardImage px-2"
                     alt="Card"
                     src={`https://www.weatherbit.io/static/img/icons/${item.weather.icon}.png`}
                   />
                 </div>
-                <div className="text-lg grid content-center  ">
+                <div className="lg:text-lg sm:text-sm grid content-center    ">
                   <ul className="cardItems">
                     <li>
                       Sıcaklık: {Math.floor(item.app_max_temp)} /{" "}
@@ -62,6 +67,7 @@ function Content() {
           weatherData.slice(1, 7).map((item, index) => (
             <div
               className="flex-1  p-3
+                rounded-xl
                 border-cityColor
                 bg-cyan-500  shadow-lg
                 hover:shadow-cyan-500/50

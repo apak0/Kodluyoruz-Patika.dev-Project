@@ -14,9 +14,9 @@ export const WeatherProvider = ({ children }) => {
   const weekday = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"]
 
   useEffect(() => {
-    // fetch(`${url}${location}&key=${apiKey}`)
-    // .then(res => res.json())
-    // .then(data => setWeatherData(data.data))
+    fetch(`${url}${location}&key=${apiKey}`)
+    .then(res => res.json())
+    .then(data => setWeatherData(data.data))
     console.log(data)
   }, [location]);
 

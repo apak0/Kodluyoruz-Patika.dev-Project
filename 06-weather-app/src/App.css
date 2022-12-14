@@ -1,6 +1,10 @@
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
+body{
+  background-color: #344d67;
+
+}
 .previousDiv {
   background-color: #344d67;
 }
