@@ -18,23 +18,18 @@ function Content() {
               className=" flex justify-center border mb-5 w-full lg:w-2/5"
               key={index}
             >
-              <div >
-               
-              </div>
+              <div></div>
 
               <div className="flex w-full justify-evenly">
                 <div className="">
-                  
-                <h1 className="font-bold sm:text-3xl flex items-center text-cityColor">
-                  {location.charAt(0).toUpperCase() +
-                    location.slice(1).toLowerCase()}
-                </h1>
+                  <h1 className="font-bold sm:text-3xl flex items-center text-cityColor">
+                    {location.charAt(0).toUpperCase() +
+                      location.slice(1).toLowerCase()}
+                  </h1>
 
                   <h5 color="#FFFBEB" className="text-indigo-300 text-2xl  ">
                     {weekday[new Date(item.datetime).getDay()]}
                   </h5>
-
-
 
                   <img
                     className="cardImage px-2"
