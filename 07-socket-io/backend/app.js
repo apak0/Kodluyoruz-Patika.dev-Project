@@ -9,10 +9,10 @@ app.get('/', (req, res) => {
     res.send('hello');
 });
 
-let lastColor = "#000"
+let lastColor = "#282c34"
 
 io.on("connection", (socket)=> {
-    console.log("bir kullanıcı bağlandı");
+    console.log("bir kullanici bağlandi");
 
     socket.emit("receive", lastColor);
 
@@ -20,11 +20,11 @@ io.on("connection", (socket)=> {
         console.log(color);
 
         lastColor = color;
-        socket.broadcast.emit("receive", color);
+        io.emit("receive", color);
     });
 
     socket.on("disconnect", () => {
-        console.log("bir kullanıcı ayrıldı.");
+        console.log("bir kullanici ayrildi.");
     });
 });
 
