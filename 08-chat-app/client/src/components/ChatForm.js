@@ -1,12 +1,17 @@
 import { useState } from "react";
 import styles from "./styles.module.css";
+import {sendMessage} from "../sockeApi"
 
 function ChatForm() {
   const [message, setMessage] = useState("");
 
   const handleSubbmit = (e) => {
     e.preventDefault();
-    console.log(message.trim())
+    console.log(message)
+
+
+    
+
     setMessage("")
   }
 
