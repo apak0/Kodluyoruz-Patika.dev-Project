@@ -10,11 +10,11 @@ function ChatList() {
   return (
    
         <div className={styles.chatlist}>
-             <div>
+            <ScrollableFeed forceScroll= {true}>
             {messages.map((item, key) => (
           <ChatItem key={key} item={item} />
           ))}
-          </div>
+          </ScrollableFeed>
         </div>
     
   );
