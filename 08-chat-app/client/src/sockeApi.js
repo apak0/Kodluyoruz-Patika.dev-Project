@@ -16,10 +16,11 @@ export  const sendMessage = (message) => {
     if (socket) socket.emit("new-message", message);
 };
 
-export const subscribeChat = () => {
+export const subscribeChat = (cb) => {
     if(!socket) return;
 
     socket.on('receive-message', (message) => {
         console.log("Yeni mesaj var", message)
+        cb(message)
     })
 };
