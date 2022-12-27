@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import ChatList from './ChatList'
 import ChatForm from './ChatForm'
-import {init} from "../sockeApi"
+import {init, subscribeChat} from "../sockeApi"
+
 
 
 function Container() {
@@ -9,6 +10,8 @@ function Container() {
 
   useEffect(() => {
     init();
+
+    subscribeChat();
   }, [])
 
   return (
