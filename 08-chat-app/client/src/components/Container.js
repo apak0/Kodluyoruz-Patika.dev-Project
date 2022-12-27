@@ -1,8 +1,9 @@
 import React, { useContext, useEffect } from 'react'
 import ChatList from './ChatList'
 import ChatForm from './ChatForm'
-import {init, subscribeChat} from "../sockeApi"
+import {init, subscribeChat, subscribeInitialMessages} from "../sockeApi"
 import {useChat} from '../context/ChatContext'
+
 
 
 
@@ -12,6 +13,10 @@ function Container() {
 
   useEffect(() => {
     init();
+
+    subscribeInitialMessages((messages) => {
+      setMessages(messages)
+    })
 
     subscribeChat((message)=> {
       setMessages(prevState => [...prevState, {message}])

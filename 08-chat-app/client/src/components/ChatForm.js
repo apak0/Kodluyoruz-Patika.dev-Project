@@ -12,11 +12,19 @@ function ChatForm() {
     e.preventDefault();
     console.log(message)
 
+    if (message.trim().length !== 0) {
     setMessages((prevState) =>[...prevState, {message, fromMe: true}])
 
     sendMessage(message);
 
     setMessage("");
+
+    } else {
+      console.log('input value is empty');
+      e.onSubmit()
+    }
+
+    
   };
 
   return (
@@ -25,7 +33,7 @@ function ChatForm() {
         <input
           className={styles.textInput}
           value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          onChange={(e) => setMessage(e.target.value) }
         />
       </form>
     </div>

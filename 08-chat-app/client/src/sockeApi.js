@@ -4,7 +4,7 @@ let socket;
 
 export const init = () => {
     console.log("connecting...")
-    socket = io("http://localhost:3000", {
+    socket = io("http://localhost:3002", {
         transports: ["websocket"],
     });
 
@@ -24,3 +24,13 @@ export const subscribeChat = (cb) => {
         cb(message)
     })
 };
+
+
+export const subscribeInitialMessages = (cb) => {
+    if(!socket) return;
+
+    socket.on('message-list', (messages) => {
+        console.log("Initial", messages)
+        cb(messages)
+    })
+} 
