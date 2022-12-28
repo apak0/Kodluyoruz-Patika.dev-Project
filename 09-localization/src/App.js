@@ -5,11 +5,11 @@ import { useState, useEffect } from "react";
 const messages = {
   "tr-TR": {
     title: "merhaba dünya",
-    description: "Üç yeni mesajınız var"
+    description: "{count} yeni mesajınız var"
   },
   "en-US": {
     title:"hello world",
-    description:"You have 3 new messages"
+    description:"You have {count}  new messages"
   }
 };
 
@@ -32,6 +32,7 @@ function App() {
         <p>
           <FormattedMessage
           id="description"
+          values={{count:5}}
           />
         </p>
         <br/>
