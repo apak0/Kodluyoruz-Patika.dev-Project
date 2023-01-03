@@ -10,6 +10,6 @@ describe("Input testing", () => {
     beforeEach(()=> {
         render(<SearchInput />);
 
-        input = screen.get
+        input = screen.getByPlaceHolder();
     })
 })
