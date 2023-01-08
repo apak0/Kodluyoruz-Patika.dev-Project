@@ -16,7 +16,10 @@ export default class SearchInput extends PureComponent {
     return (
       <div className="component-search-input">
         <div>
+          <label>
+            text
           <input onChange={this.handleChange} />
+          </label>
         </div>
       </div>
     );
