@@ -23,3 +23,5 @@ describe("Input tests", () => {
     })
 
 })
+
+// Note: Second test like that "input.value.include(list.firstItemLetter)"
