@@ -1,50 +1,46 @@
-import React from 'react';
-import '@testing-library/jest-dom';
-import { render, screen, fireEvent } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import App from './App';
+import React from "react";
+import "@testing-library/jest-dom";
+import { render, screen, fireEvent, cleanup } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import App from "./App";
 
-describe('app test', () => {
+describe("app test", () => {
   beforeEach(() => {
-    render(<App />)
+    render(<App />);
   });
 
-  test('header section rendered', () => {
-    const headerTitle = screen.getByText('Emoji Search');
-    // eslint-disable-next-line no-unused-expressions
-    expect(headerTitle).toBeInTheDocument();
-    })
+  // Header section test
+  test("header section rendered", () => {
+    const catIconLeft = screen.getByAltText("smile-cat-left");
+    const catIconRight = screen.getByAltText("smile-cat-right");
 
-    test('the emoji list is rendered successfully when the app is first opened.', () => {
-      expect(screen.getAllByText("Click to copy emoji")).toHaveLength(20);
+    expect(catIconLeft).toBeInTheDocument();
+    expect(catIconRight).toBeInTheDocument();
   });
 
-  test('The emoji list is re-rendered according to that filter.', () => {
-      const input = screen.getByRole('textbox');
+  // Emoji list test
 
-      fireEvent.change(input, { target: { value: 'snow' } });
-
-      expect(screen.getAllByText(/snow/i)).toHaveLength(6);
+  test("The emoji list are rendered correctly", () => {
+    expect(screen.getAllByText("Click to copy emoji")).toHaveLength(20);
   });
 
+  // Input filtered test
+  test("The emoji list is re-rendered according to that filter", () => {
+    const inputElement = screen.getByPlaceholderText(/search/i);
+    expect(inputElement).toHaveValue("");
 
-})
+    userEvent.type(inputElement, "There is an input");
+    expect(inputElement).toHaveValue("There is an input");
 
+    const input = screen.getByRole("textbox");
+    fireEvent.change(input, { target: { value: "joy" } });
+    expect(screen.getAllByText(/joy/i)).toHaveLength(3);
+  });
 
+  // Emoji Item copied test
 
-
-// describe('app test', () => {
-
-  
-  
-//   beforeEach(() => {
-//    render(<App />));
-
-//   test('header', () => {
-//     const headerTitle = screen.getByText('Emoji Search');
-//     // eslint-disable-next-line no-unused-expressions
-//     expect(headerTitle).toBeInTheDocument;
-//   });
-
- 
-// });
+  test("Emoji Copy render", () => {
+    const clicks = screen.getAllByTestId("row");
+    expect(clicks[0]).toHaveAttribute("data-clipboard-text");
+  });
+});
