@@ -6,7 +6,7 @@ import { LocaitonContext } from "../context/LocationContext";
 function Content() {
   const { weatherData, weekday } = useContext(WeatherContext);
   const { location, setLocation } = useContext(LocaitonContext);
-  console.log("asd", weatherData);
+  console.log("data from content", weatherData);
   return (
     <div className="topContainer">
       {/* Bugünün hava durumunu gösteren card START*/}
@@ -27,8 +27,11 @@ function Content() {
                       location.slice(1).toLowerCase()}
                   </h1>
 
-                  <h5 color="#FFFBEB" className="text-indigo-300 text-2xl  ">
+                  <h5 color="#FFFBEB" className="text-indigo-300 text-2xl text-center ">
                     {weekday[new Date(item.datetime).getDay()]}
+                    <br/>
+                    {item.datetime}
+                      
                   </h5>
 
                   <img

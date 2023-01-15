@@ -1,5 +1,6 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import { LocaitonContext } from "./LocationContext";
+import mockData from "./mockData.json"
 
 
 
@@ -14,9 +15,7 @@ export const WeatherProvider = ({ children }) => {
   const weekday = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"]
 
   useEffect(() => {
-    fetch(`${url}${location}&key=${apiKey}`)
-    .then(res => res.json())
-    .then(data => setWeatherData(data.data))
+   setWeatherData(mockData)
     console.log(data)
   }, [location]);
 
